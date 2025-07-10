@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Temperatura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #005a9c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Conversor de Celsius a Fahrenheit y Kelvin</h1>
+  <p id="resultado"></p>
+
+  <script>
+    function solicitarTemperatura() {
+      let celsius;
+
+      while (true) {
+        let entrada = prompt("Ingresa la temperatura en grados Celsius:");
+
+        // Intentar convertir a número
+        celsius = parseFloat(entrada);
+
+        // Validar si es un número
+        if (!isNaN(celsius)) {
+          break; // Entrada válida
+        } else {
+          alert("Por favor, ingresa un número válido.");
+        }
+      }
+
+      // Conversión
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      const kelvin = celsius + 273.15;
+
+      // Mostrar resultados en consola
+      console.log("Grados Fahrenheit: " + fahrenheit.toFixed(2));
+      console.log("Grados Kelvin: " + kelvin.toFixed(2));
+
+      // Mostrar resultados en el DOM
+      document.getElementById("resultado").innerHTML =
+        `Grados Fahrenheit: ${fahrenheit.toFixed(2)}<br>` +
+        `Grados Kelvin: ${kelvin.toFixed(2)}`;
+    }
+
+    // Ejecutar función al cargar
+    solicitarTemperatura();
+  </script>
+</body>
+</html>
